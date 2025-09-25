@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATELIER - PEDIDOS EN CURSO</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 16px;
+      background: #f6f7fb;
+      color: #222;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 1.25rem;
+      margin: 0 0 12px;
+    }
+
+    h3 {
+      margin: 0 0 16px;
+      font-weight: normal;
+      color: #555;
+    }
+/* Contenedor para el iframe centrado */
+.iframe-wrap {
+  position: relative;
+  width: 90%;           /* ocupa el 90% del ancho del navegador */
+  height: 700px;
+  margin: 0 auto;       /* centra horizontalmente */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+.iframe-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+    /* Overlay para ocultar el botón "Ver libro a tamaño completo" */
+    .hide-button {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 160px; /* ajusta según el tamaño del botón */
+      height: 26px; /* ajusta según el alto del botón */
+      background: #393b3e;
+      border-top-left-radius: 6px;
+    }
+
+    .note {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+ <div class="container">
+  <h1>ATELIER - PEDIDOS EN CURSO</h1>
+  <h3>C.M. Versión 0925</h3>
+</div>
+
+<!-- Iframe centrado -->
+<div class="iframe-wrap">
+  <iframe 
+    src="https://thebathcollection.sharepoint.com/sites/INTRANETBATHCO-Atelier/_layouts/15/Doc.aspx?sourcedoc={91f9ea1d-93bb-4b88-ac32-850e06aad3a9}&action=embedview&Item=PEDIDOS_EN_CURSO&wdHideGridlines=True&wdInConfigurator=True&em=2&wdDownloadButton=False">
+  </iframe>
+  <div class="hide-button"></div>
+</div>
+
+<div class="note" style="text-align:center;">
+  ⚠️ Datos actualizados cada 3 minutos.
+</div>
+  </div>
+
+  <script>
+    const REFRESH_MS = 180000; // 3 minutos
+    setInterval(() => {
+      const iframe = document.querySelector('iframe');
+      if (iframe) {
+        iframe.src = iframe.src;
+      }
+    }, REFRESH_MS);
+  </script>
+</body>
+</html>
